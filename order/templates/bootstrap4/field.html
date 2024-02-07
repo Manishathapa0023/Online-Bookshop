@@ -1,0 +1,25 @@
+{% if field.field.required %}
+{% if field.label %}
+<label for="{{ field.id_for_label }}" class="col-sm-2 col-form-label">{{ field.label }}</label>
+{% endif %}
+<div class="col-sm-10">
+    {{ field }}
+    {% if field.errors %}
+    <span class="text-danger">{{ field.errors.as_text }}</span>
+    {% endif %}
+</div>
+{% else %}
+<div class="form-group row">
+    {% if field.label %}
+    <label for="{{ field.id_for_label }}" class="col-sm-2 col-form-label">{{ field.label }}</label>
+    {% else %}
+    <div class="col-sm-2"></div>
+    {% endif %}
+    <div class="col-sm-10">
+        {{ field }}
+        {% if field.errors %}
+        <span class="text-danger">{{ field.errors.as_text }}</span>
+        {% endif %}
+    </div>
+</div>
+{% endif %}
